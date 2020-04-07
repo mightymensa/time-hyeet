@@ -1,13 +1,31 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button>
-      </ion-back-button>
+      <ion-button [routerLink]="['/home']">
+          <ion-icon slot="icon-only" name="arrow-back-outline" color="light"></ion-icon>
+
+      </ion-button>
+      <!-- <ion-back-button defaultHref="home">
+      </ion-back-button> -->
   </ion-buttons>
     <ion-title>settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+  
 
+  
+  
+    <ion-item button (click)="messageService.logout()">
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label>
+        <h3>Logout</h3>
+        <!-- <p>Icon on right</p> -->
+      </ion-label>
+    
+    </ion-item>
+  
+  </ion-list>
 </ion-content>

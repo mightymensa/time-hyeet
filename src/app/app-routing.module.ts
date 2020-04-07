@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { HomePage } from './pages/home/home.page';
 import { SettingsPage } from './pages/settings/settings.page';
+import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component:HomePage
+    component:HomePage,canActivate:[UserGuard]
   }
 ];
 

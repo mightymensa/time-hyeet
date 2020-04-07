@@ -14,14 +14,18 @@
       <ion-card-title>Login</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-
+      <div *ngIf="errorLoggingIn" class="text-danger">{{errorMessage}}</div>
       <ion-item class="mb-3">
         <ion-label position="floating">Username</ion-label>
-        <ion-input></ion-input>
+        <ion-input name="username" [(ngModel)]="username" ></ion-input>
       </ion-item>
       <ion-item class="mb-3">
         <ion-label position="floating">PIN</ion-label>
-        <ion-input type="password" name="pin" maxlength="4"></ion-input>
+        <ion-input type="password" name="pin" maxlength="4" name="pincode" [(ngModel)]="pincode"></ion-input>
+      </ion-item>
+      <ion-item class="mb-3">
+        <ion-label position="floating">url</ion-label>
+        <ion-input name="url" [(ngModel)]="url"></ion-input>
       </ion-item>
       <ion-button expand="block" (click)="loginUser()">Submit</ion-button>
     </ion-card-content>

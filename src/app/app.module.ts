@@ -14,17 +14,26 @@ import { LoginComponent} from './components/login/login.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 import { HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+
+import { AppMinimize } from '@ionic-native/app-minimize/ngx';
+import { MessageService } from './services/message.service';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AppComponent,HomePage,SettingsPage,LoginComponent],
   entryComponents: [],
   imports: [
+    IonicStorageModule.forRoot(),
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule
   ],
   providers: [
+    MessageService,
     Geolocation,
+    AppMinimize,
     FingerprintAIO,
     StatusBar,
     SplashScreen,

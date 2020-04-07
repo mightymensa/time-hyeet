@@ -8,20 +8,33 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  
   <div style="position: absolute;left: 0;top: 0;background-image: linear-gradient(45deg, #254072 25%, #254072 25%, #254072 50%, #4166ab 50%, #4166ab 75%, #254072 75%, #254072 100%);height: 100%;width: 100%;opacity: 0.9;"></div>
+  <div *ngIf="messageService.loadingProjects" class="container jumbotron" style="position: relative;">
+    <span class="sr-only">Loading...</span> Loading Projects
+  </div>
+  <!-- <ion-buttons slot="end"> -->
+    <!-- <ion-button> -->
+      <ion-icon class="btn" *ngIf="messageService.loadingProjects==false" name="refresh-outline" color="light" (click)="messageService.loadProjects()" style="color: white;font-weight: bold;"></ion-icon>
 
-  <div *ngFor="let site of currentSites" class="card shadow-lg mt-3" style="min-height: 50px;">
+      <!-- <ion-icon *ngIf="!site.nearBy" slot="icon-only" name="hourglass-outline"  color="primary"></ion-icon> -->
+    <!-- </ion-button> -->
+  <!-- </ion-buttons> -->
+  <div *ngFor="let site of messageService.projects" class="card shadow-lg mt-3" style="min-height: 80px;">
     <ion-card-content>
       <ion-item>
-        <ion-label>
-          {{site.name}}
-        </ion-label>
-        <ion-buttons slot="end">
+      
+        <ion-buttons slot="start">
           <ion-button>
-            <ion-icon *ngIf="site.nearBy" slot="icon-only" name="hourglass-outline"  color="success"></ion-icon>
-            <ion-icon *ngIf="!site.nearBy" slot="icon-only" name="hourglass-outline"  color="primary"></ion-icon>
+            <ion-icon slot="icon-only" name="clipboard-outline"  color="primary"></ion-icon>
+            <!-- <ion-icon *ngIf="!site.nearBy" slot="icon-only" name="hourglass-outline"  color="primary"></ion-icon> -->
           </ion-button>
         </ion-buttons>
+        <div>
+          <h5>
+            {{site.name}}
+          </h5>
+        </div>
       </ion-item>
     </ion-card-content>
   </div>
